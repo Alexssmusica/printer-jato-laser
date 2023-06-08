@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "winrawprinter",
+        "target_name": "printer-jato-laser",
         "cflags!": [ "-fno-exceptions" ],
         "cflags_cc!": [ "-fno-exceptions" ],
         "sources": [

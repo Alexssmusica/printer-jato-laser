@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const rawprinter_native = require('./build/Release/winrawprinter.node');
+const rawprinter_native = require('./build/Release/printer-jato-laser.node');
 function validateParams(buff, printername) {
     if (buff.byteLength == 0)
         throw new Error("buff:Buffer parameter cannot be zero-length");

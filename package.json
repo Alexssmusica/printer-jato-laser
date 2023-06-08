@@ -1,13 +1,13 @@
 {
-  "name": "winrawprinter",
-  "version": "1.0.3",
+  "name": "printer-jato-laser",
+  "version": "1.0.4",
   "description": "Native node module for printing raw printer data directly to a windows printer",
   "main": "index.js",
   "gypfile": true,
-  "homepage": "https://github.com/steve-krisjanovs/winrawprinter#readme",
+  "homepage": "https://github.com/printer-jato-laser/winrawprinter#readme",
   "bugs": {
-    "url": "https://github.com/steve-krisjanovs/winrawprinter/issues",
-    "email": "steve.krisjanovs@gmail.com"
+    "url": "https://github.com/printer-jato-laser/winrawprinter/issues",
+    "email": "alexssmusica@gmail.com"
   },
   "keywords": [
     "windows",
