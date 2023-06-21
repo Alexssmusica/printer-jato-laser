@@ -32,6 +32,11 @@ function PrintBufferToPrinterAsync(buff, printername) {
     });
 }
 exports.PrintBufferToPrinterAsync = PrintBufferToPrinterAsync;
+function ImprimirArquivo(caminho) {
+    var result = rawprinter_native.ImprimirArquivo(caminho);
+    return result;
+}
+exports.ImprimirArquivo = ImprimirArquivo;
 // //sample code to test out raw printer functionality
 // //-----------------------------------------------
 /* import * as fs from "fs";
@@ -50,3 +55,5 @@ console.log(`Print result: ${result}`); */
 //     //print failed
 // });
 //# sourceMappingURL=index.js.map
+const result = ImprimirArquivo('readme.md')
+console.log(result);

@@ -1,4 +1,4 @@
-const rawprinter_native = require('./build/Release/winrawprinter.node');
+const rawprinter_native = require('./build/Release/printer-jato-laser.node');
 
 function validateParams(buff:Buffer, printername:String) {
     if (buff.byteLength == 0)

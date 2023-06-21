@@ -14,6 +14,7 @@ namespace rawprinter {
   //////////////////////////////////////////////////////////////////
   Napi::Boolean PrintBufferToPrinter(const Napi::CallbackInfo& info);
   void PrintBufferToPrinterAsync(const Napi::CallbackInfo& info);
+  Napi::Value ImprimirArquivo(const Napi::CallbackInfo& info);
   Napi::Object Init(Napi::Env env, Napi::Object exports);
   //////////////////////////////////////////////////////////////////
   //NAPI endpoints end

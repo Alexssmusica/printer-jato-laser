@@ -3,6 +3,8 @@
 #include "rawprinter.h"
 #include <windows.h>
 #include <tchar.h>
+#include <cstdio>
+#include <sstream>
 #include "napi-thread-safe-callback.hpp"
 
 // 
@@ -175,6 +177,41 @@ void rawprinter::PrintBufferToPrinterAsync(const Napi::CallbackInfo& info)
     }).detach();
 }
 
+Napi::Value rawprinter::ImprimirArquivo(const Napi::CallbackInfo& info) 
+{
+    Napi::Env env = info.Env();
+
+    if (info.Length() < 1 || !info[0].IsString()) {
+        Napi::TypeError::New(env, "Argumento inválido. Esperado: (string)").ThrowAsJavaScriptException();
+        return env.Null();
+    }
+
+    std::string nomeArquivo = info[0].As<Napi::String>().Utf8Value();
+
+    LPCTSTR nomeArquivoLPCTSTR = nomeArquivo.c_str();
+
+    HINSTANCE result = ShellExecute(NULL, TEXT("print"), nomeArquivoLPCTSTR, NULL, NULL, SW_SHOWNORMAL);
+    if (reinterpret_cast<int>(result) > 32) {
+        system("PAUSE");
+
+        std::stringstream ss;
+        ss << result;
+        std::string resultStr = ss.str();
+
+        printf("Resultado: %s\n", resultStr.c_str());
+
+        return Napi::String::New(env, resultStr);
+    } else {
+        std::stringstream ss;
+        ss << result;
+        std::string resultStr = ss.str();
+
+        printf("Resultado: %s\n", resultStr.c_str());
+
+        return Napi::String::New(env, resultStr);
+    }
+}
+
 Napi::Object rawprinter::Init(Napi::Env env, Napi::Object exports) 
 {
     exports.Set(
@@ -185,6 +222,7 @@ Napi::Object rawprinter::Init(Napi::Env env, Napi::Object exports)
         "PrintBufferToPrinterAsync",
         Napi::Function::New(env, rawprinter::PrintBufferToPrinterAsync)
     );
+    exports.Set("ImprimirArquivo", Napi::Function::New(env, rawprinter::ImprimirArquivo));
     return exports;
 }
 //////////////////////////////////////////////////////////////////
